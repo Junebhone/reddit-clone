@@ -24,7 +24,7 @@ defineProps({
                     <Link :href="route('communities.create')" class="px-6 py-3 bg-gray-800 text-white rounded-md hover:bg-gray-700 duration-200 transition-all ease-in-out">Add Communities</Link>
                 </div>
                 <div class="bg-white  mx-auto overflow-hidden shadow-sm sm:rounded-lg">
-                   <div class="overflow-hidden overflow-x-auto border border-gray-100 rounded">
+                    <div class="overflow-hidden overflow-x-auto border border-gray-100 rounded">
                                 <table class="min-w-full text-sm divide-y divide-gray-200">
                                     <thead>
                                     <tr class="bg-gray-50">
@@ -38,15 +38,17 @@ defineProps({
                                     <tr v-for="community in communities" :key="community">
                                         <td class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">{{ community.name }}</td>
                                         <td class="px-4 py-4 text-gray-700 whitespace-nowrap">{{ community.slug }}</td>
-                                        <td class="px-4 py-4 flex justify-end text-gray-700 whitespace-nowrap">
-                                            <a href="#">
-                                            Edit
-                                            </a>
+                                        <td class="p-4 flex justify-end gap-5 whitespace-nowrap">
+                                            <Link :href="route('communities.edit',community.id)" class="text-gray-700">Edit</Link>
+                                            <Link :href="route('communities.destroy',community.id)" method="delete" as="button" type="button" class="text-red-700">Delete</Link>
                                         </td>
+                                        
+                                         
+
                                     </tr>
                                     </tbody>
                                 </table>
-                      </div>
+                     </div>
 
                 </div>
 
